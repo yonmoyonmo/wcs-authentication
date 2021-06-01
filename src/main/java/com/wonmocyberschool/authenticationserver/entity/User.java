@@ -18,14 +18,19 @@ public class User {
     @Email
     @Column(nullable = false)
     private String email;
+
     private String imageUrl;
+
     @Column(nullable = false)
     private Boolean emailVerified = false;
+
     @JsonIgnore
     private String password;
+
     @NotNull
     @Enumerated
     private AuthProvider provider;
+
     private String providerId;
 
     //lombok 추가 까먹은 김에 안씀

@@ -29,6 +29,7 @@ public class TokenProvider {
 
         Claims claim = Jwts.claims();
         claim.put("email", userPrincipal.getEmail());
+        claim.put("username", userPrincipal.getUsername());
 
         return Jwts.builder()
                 .setClaims(claim)

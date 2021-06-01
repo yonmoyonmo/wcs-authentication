@@ -70,6 +70,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                 .getBody();
         System.out.println(claims.getSubject());
         System.out.println(claims.get("email"));
+        System.out.println(claims.get("username"));
 
         return UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("token", token)

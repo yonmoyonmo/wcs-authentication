@@ -1,10 +1,10 @@
 package com.wonmocyberschool.authenticationserver.controller;
 
 import com.wonmocyberschool.authenticationserver.AuthProvider;
-import com.wonmocyberschool.authenticationserver.VO.ApiResponse;
-import com.wonmocyberschool.authenticationserver.VO.AuthResponse;
-import com.wonmocyberschool.authenticationserver.VO.LoginRequest;
-import com.wonmocyberschool.authenticationserver.VO.SignUpRequest;
+import com.wonmocyberschool.authenticationserver.DTO.ApiResponse;
+import com.wonmocyberschool.authenticationserver.DTO.AuthResponse;
+import com.wonmocyberschool.authenticationserver.DTO.LoginRequest;
+import com.wonmocyberschool.authenticationserver.DTO.SignUpRequest;
 import com.wonmocyberschool.authenticationserver.entity.User;
 import com.wonmocyberschool.authenticationserver.exception.BadRequestException;
 import com.wonmocyberschool.authenticationserver.jpaRepository.UserRepository;

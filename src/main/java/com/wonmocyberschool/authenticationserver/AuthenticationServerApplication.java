@@ -14,4 +14,3 @@ public class AuthenticationServerApplication {
 	}
 
 }
-//username(nickname), email, password, real name

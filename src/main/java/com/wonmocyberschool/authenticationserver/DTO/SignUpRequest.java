@@ -1,4 +1,4 @@
-package com.wonmocyberschool.authenticationserver.VO;
+package com.wonmocyberschool.authenticationserver.DTO;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

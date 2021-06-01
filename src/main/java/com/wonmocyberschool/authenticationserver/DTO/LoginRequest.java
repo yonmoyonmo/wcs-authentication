@@ -1,4 +1,4 @@
-package com.wonmocyberschool.authenticationserver.VO;
+package com.wonmocyberschool.authenticationserver.DTO;
 
 public class LoginRequest {
     private String email;
