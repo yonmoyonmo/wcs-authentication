@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.wonmocyberschool</groupId>
 	<artifactId>authentication-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>authentication-server</name>
 	<description>Real wonmo cyber school auth app</description>
 	<properties>
