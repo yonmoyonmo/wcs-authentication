@@ -78,7 +78,7 @@ public class localAuthentication {
                 .fromCurrentContextPath().path("/signin")
                 .build().toUri();
 
-        logger.info("local signup occurred : " + signUpRequest.getEmail());
+        System.out.println("local signup occurred : " + signUpRequest.getEmail());
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "User registered successfully"));
     }
