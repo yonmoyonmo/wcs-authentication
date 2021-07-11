@@ -9,8 +9,6 @@ import com.wonmocyberschool.authenticationserver.entity.User;
 import com.wonmocyberschool.authenticationserver.exception.BadRequestException;
 import com.wonmocyberschool.authenticationserver.jpaRepository.UserRepository;
 import com.wonmocyberschool.authenticationserver.util.TokenProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,8 +40,6 @@ public class localAuthentication {
     @Autowired
     private TokenProvider tokenProvider;
 
-    @Autowired
-    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -57,7 +53,7 @@ public class localAuthentication {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = tokenProvider.createToken(authentication);
-        logger.info("local login occurred : " + loginRequest.getEmail());
+        System.out.println("local login occurred : " + loginRequest.getEmail());
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
