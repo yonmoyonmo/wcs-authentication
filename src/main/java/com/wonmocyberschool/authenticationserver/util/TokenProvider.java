@@ -31,6 +31,8 @@ public class TokenProvider {
         claim.put("email", userPrincipal.getEmail());
         claim.put("username", userPrincipal.getUsername());
 
+        logger.info("token created : " + userPrincipal.getEmail());
+
         return Jwts.builder()
                 .setClaims(claim)
                 .setSubject(Long.toString(userPrincipal.getId()))

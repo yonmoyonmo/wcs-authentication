@@ -63,15 +63,15 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         String token = tokenProvider.createToken(authentication);
 
-        System.out.println("토큰이 제대로 됐는가??");
+        logger.info("토큰확인 :");
         Claims claims = Jwts.parser()
                 .setSigningKey(appProperties.getAuth().getTokenSecret())
                 .parseClaimsJws(token)
                 .getBody();
-        System.out.println(claims.getSubject());
-        System.out.println(claims.get("email"));
-        System.out.println(claims.get("username"));
-
+        logger.info(claims.getSubject());
+        logger.info(claims.get("email"));
+        logger.info(claims.get("username"));
+        //uri 말고 body 에 json 으로 보내는 방법을 다음엔 쓰리라..
         return UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("token", token)
                 .build().toUriString();
