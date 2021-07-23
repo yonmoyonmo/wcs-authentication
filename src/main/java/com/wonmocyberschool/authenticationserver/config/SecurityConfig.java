@@ -103,11 +103,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }
-/*
-to do memo
-CustomUserDetailsService = local o
-CustomOAuth2UserService = oauth o
-OAuth2Success & Failure handler o
-cookie for oauth2 request? o
-jwt authentication filter o
-* */

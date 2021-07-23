@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
 
@@ -58,7 +59,7 @@ public class localAuthentication {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest, HttpServletRequest request) {
         if(userRepository.existsByEmail(signUpRequest.getEmail())) {
             throw new BadRequestException("Email address already in use.");
         }
@@ -79,6 +80,13 @@ public class localAuthentication {
                 .build().toUri();
 
         System.out.println("local signup occurred : " + signUpRequest.getEmail());
+
+        String clientIp = request.getHeader("X-Forwarded-For");
+        if (clientIp == null || "unknown".equalsIgnoreCase(clientIp)) {
+            clientIp = request.getHeader("Proxy-Client-IP");
+        }
+        System.out.println("IP : " + clientIp);
+
         return ResponseEntity.created(location)
                 .body(new ApiResponse(true, "User registered successfully"));
     }
